@@ -363,7 +363,7 @@ This allows management to compare workforce activity across different periods.
 
 # 📸 Dashboard Preview
 
-```text
+
 assets/
 │
 ├── HR Dashboard Overview.png
@@ -372,7 +372,11 @@ assets/
 ├── Compensation Analytics.png
 ├── Training Analytics.png
 └── Performance Analytics.png
-```
+![image alt](.png)
+
+![image alt](.png)
+
+![image alt](.png)
 
 > Add your exported Power BI dashboard screenshots to the `assets` folder and update the image links below.
 

@@ -365,11 +365,11 @@ This allows management to compare workforce activity across different periods.
 
 
 
-![image alt](https://github.com/harshitdara66-sys/Power_BI_Dashboard_Employee-HR-Dataset-All-in-One-Project-Dataset/blob/87a6fb7a62e66e1d16c6a3e1a650b02da00ee746/HR%20WORKFORCE%20-%20ATTRITION%20ANALYSIS.png.png)
+![image alt](https://github.com/harshitdara66-sys/Power_BI_Dashboard_Employee-HR-Dataset-All-in-One-Project-Dataset/blob/87a6fb7a62e66e1d16c6a3e1a650b02da00ee746/HR%20WORKFORCE%20-%20ATTRITION%20ANALYSIS.png)
 
-![image alt](https://github.com/harshitdara66-sys/Power_BI_Dashboard_Employee-HR-Dataset-All-in-One-Project-Dataset/blob/412b0f054f1d37eaa8eabac8bb7a633d73acab37/Compensation%20%C2%B7%20Salary%20Bands%20%C2%B7%20Training%20Investment.png.png)
+![image alt](https://github.com/harshitdara66-sys/Power_BI_Dashboard_Employee-HR-Dataset-All-in-One-Project-Dataset/blob/412b0f054f1d37eaa8eabac8bb7a633d73acab37/Compensation%20%C2%B7%20Salary%20Bands%20%C2%B7%20Training%20Investment.png)
 
-![image alt](https://github.com/harshitdara66-sys/Power_BI_Dashboard_Employee-HR-Dataset-All-in-One-Project-Dataset/blob/afc9a4d1dc76adb2637ac444fe160041f0e168f8/HR%20Workforce%20Analytics%20%E2%80%94%20Workforce%20Overview.png.png)
+![image alt](https://github.com/harshitdara66-sys/Power_BI_Dashboard_Employee-HR-Dataset-All-in-One-Project-Dataset/blob/afc9a4d1dc76adb2637ac444fe160041f0e168f8/HR%20Workforce%20Analytics%20%E2%80%94%20Workforce%20Overview.png)
 
 > Add your exported Power BI dashboard screenshots to the `assets` folder and update the image links below.
 

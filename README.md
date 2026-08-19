@@ -1,141 +1,170 @@
-# 📊 HR Data Analytics — Power BI
+# 👥 HR Data Analytics Dashboard | Power BI Business Intelligence Project
 
-> **Enterprise-style HR Analytics & Workforce Intelligence Dashboard**  
-> A Power BI project designed to transform employee, training, performance, engagement, and recruitment data into actionable workforce insights.
+<p align="center">
 
----
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![DAX](https://img.shields.io/badge/DAX-Advanced-blue?style=for-the-badge)
+![Power Query](https://img.shields.io/badge/Power%20Query-ETL-success?style=for-the-badge)
+![Data Modeling](https://img.shields.io/badge/Data%20Model-Star%20Schema-orange?style=for-the-badge)
+![HR Analytics](https://img.shields.io/badge/HR-Analytics-purple?style=for-the-badge)
+![Status](https://img.shields.io/badge/Project-Completed-brightgreen?style=for-the-badge)
 
-## 📌 Project Overview
-
-**HR Data Analytics** is an end-to-end Power BI analytics project focused on understanding workforce composition, employee attrition, compensation, performance, training investment, engagement, and recruitment activity.
-
-The project demonstrates a production-oriented BI workflow:
-
-**Raw Data → Power Query → Data Model → DAX → KPI Layer → Interactive Dashboard → Business Insights**
-
-The solution is designed with maintainability, data quality, reusable measures, and business-oriented reporting in mind.
+</p>
 
 ---
 
-## 🎯 Business Objectives
+# 📌 Project Overview
 
-The dashboard is designed to help HR and management teams:
+This project is an **interactive HR Business Intelligence Dashboard** developed in **Microsoft Power BI**.
 
-- Monitor total and active headcount.
-- Analyze employee attrition and termination trends.
-- Compare salary levels across departments and employee groups.
-- Evaluate employee tenure and career-level distribution.
-- Measure employee performance.
-- Analyze training participation and training costs.
-- Understand workforce diversity.
-- Track recruitment pipeline activity.
-- Identify high-performing employees and departments.
-- Compare current workforce metrics with historical periods.
-- Support data-driven workforce planning and HR decision-making.
+The dashboard transforms employee, training, performance, engagement, and recruitment data into meaningful workforce insights. It provides management with a centralized view of **headcount, attrition, compensation, employee performance, training investment, workforce diversity, and hiring trends**.
+
+The project demonstrates an end-to-end Business Intelligence workflow including **ETL, Data Cleaning, Data Modeling, DAX, Time Intelligence, KPI Development, and Interactive Dashboard Design**.
 
 ---
 
-## 🧩 Data Domains
+# 🎯 Business Objectives
 
-The analytical solution works across multiple HR business domains:
-
-| Domain | Purpose |
-|---|---|
-| Employee Master | Employee demographics, employment status, salary and joining/termination information |
-| Training | Training participation, cost and training-related metrics |
-| Performance | Employee performance ratings |
-| Engagement Survey | Employee engagement-related information |
-| Recruitment | Applicant pipeline and recruitment status |
-| Date / Time | Time-based analysis and time-intelligence calculations |
-
-> **Note:** Recruitment is treated separately where employee-level keys are unavailable.
-
----
-
-## 🏗️ Data Architecture
-
-The Power BI model follows a structured relational/analytical approach.
-
-### Core Relationship Design
-
-```text
-                    ┌──────────────────┐
-                    │  EmployeeMaster  │
-                    │   Employee ID    │
-                    └────────┬─────────┘
-                             │
-             ┌───────────────┼────────────────┐
-             │               │                │
-             ▼               ▼                ▼
-      ┌────────────┐  ┌───────────────┐  ┌─────────────┐
-      │  Training  │  │ Engagement    │  │ Performance │
-      │ Employee ID│  │ Employee ID   │  │ Employee ID │
-      └────────────┘  └───────────────┘  └─────────────┘
-
-                    ┌──────────────────┐
-                    │      Date        │
-                    └────────┬─────────┘
-                             │
-                    Time Intelligence
-                             │
-                             ▼
-                    HR Analytical Layer
-```
-
-### Relationship Strategy
-
-- `EmployeeMaster[Employee ID]` → `Training[Employee ID]`
-- `EmployeeMaster[Employee ID]` → `EngagementSurvey[Employee ID]`
-- `EmployeeMaster[Employee ID]` → `Performance[Employee ID]`
-- Relationships are designed as **1-to-Many** where applicable.
-- Filter direction is primarily **Single** from the employee dimension toward related fact/detail tables.
-- Recruitment is maintained as a standalone analytical table when an Employee ID relationship is not available.
+- Monitor overall workforce headcount
+- Track active and terminated employees
+- Analyze employee attrition
+- Compare salary levels across departments
+- Analyze employee tenure and career levels
+- Measure employee performance
+- Evaluate training participation and training costs
+- Analyze workforce diversity
+- Monitor hiring and recruitment trends
+- Identify high-performing employees
+- Support workforce planning and HR decision-making
 
 ---
 
-## 🔄 ETL / Data Preparation
+# 📊 Dashboard Features
 
-### Power Query Transformation Pipeline
+## Executive KPIs
 
-The data preparation process includes:
-
-1. Imported source HR datasets.
-2. Validated table structures and column data types.
-3. Converted employment dates to **Date** data type.
-4. Converted salary to numeric/decimal format.
-5. Converted employee ratings to numeric values.
-6. Applied `Trim` and `Clean` transformations to text fields.
-7. Standardized categorical values.
-8. Checked missing and invalid values.
-9. Created employee-level calculated attributes.
-10. Prepared tables for relationship modeling.
-11. Validated relationship keys.
-12. Loaded transformed data into the Power BI semantic model.
-
-### Data Quality Controls
-
-The project considers:
-
-- Missing values
-- Duplicate employee identifiers
-- Invalid dates
-- Incorrect numeric data types
-- Inconsistent text formatting
-- Relationship/key integrity
-- Outlier salary values
-- Invalid employee status values
+- 👥 Total Headcount
+- 🟢 Active Headcount
+- 🔴 Terminated Employees
+- 📉 Attrition Rate
+- 💰 Average Salary
+- 💵 Total Salary Cost
+- ⏳ Average Tenure
+- ⭐ Average Performance Rating
+- 🎓 Training Cost
+- 🏆 High Performer Percentage
 
 ---
 
-# 🧮 DAX & Semantic Model
+## Workforce Analytics
 
-The project contains a dedicated **`_Measures`** table for centralized KPI and analytical measures.
+- Department-wise Headcount
+- Active vs Terminated Employees
+- Career-Level Distribution
+- Employee Tenure Analysis
+- Workforce Composition
+- Department Contribution to Total Headcount
 
-This approach keeps business logic separate from raw data columns and improves model maintainability.
+---
 
-## Core Measures
+## Compensation Analytics
 
-Examples include:
+- Average Salary
+- Total Salary Cost
+- Salary Band Analysis
+- Department Average Salary
+- Salary Ranking by Department
+- Above-Average Salary Analysis
+
+---
+
+## Performance Analytics
+
+- Average Performance Rating
+- High Performer Count
+- High Performer Percentage
+- Department Performance Comparison
+- Performance Classification
+- Employee Performance Insights
+
+---
+
+## Training Analytics
+
+- Total Training Cost
+- Average Training Cost
+- Training Cost by Department
+- Training Cost Ranking
+- Training Investment Analysis
+
+---
+
+## Attrition Analytics
+
+- Overall Attrition Rate
+- Department Attrition Analysis
+- Termination Trends
+- YTD Attrition
+- Attrition Comparison
+- Historical Workforce Movement
+
+---
+
+## Recruitment Analytics
+
+- Recruitment Pipeline
+- Applicant Status Analysis
+- Application Stage Distribution
+- Recruitment Performance
+- Hiring Activity Analysis
+
+---
+
+## Workforce Diversity
+
+- Gender Distribution
+- Gender Diversity Ratio
+- Department Diversity
+- Workforce Composition
+
+---
+
+# 📈 Business Insights
+
+The dashboard helps HR teams and business leaders:
+
+- Identify departments with high employee concentration
+- Monitor workforce growth and reduction
+- Identify areas with higher employee attrition
+- Compare compensation across departments
+- Detect employees or groups above average salary levels
+- Identify high-performing workforce segments
+- Evaluate investment in employee training
+- Monitor workforce diversity
+- Compare hiring performance over time
+- Support data-driven workforce planning
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Microsoft Power BI | Dashboard Development |
+| Power Query | Data Cleaning & ETL |
+| DAX | KPIs & Business Measures |
+| Data Modeling | Relationships & Semantic Model |
+| Star Schema | Analytical Data Architecture |
+| Excel / CSV | Source Data |
+| Git / GitHub | Version Control |
+
+---
+
+# 🧮 DAX Measures
+
+The project includes a centralized **`_Measures`** table for reusable business calculations.
+
+### Core HR Measures
 
 ```DAX
 Total_Headcount
@@ -148,7 +177,7 @@ Distinct_Departments
 Avg_Performance_Rating
 ```
 
-## Workforce Analytics
+### Workforce & Attrition Measures
 
 ```DAX
 Attrition_Rate_%
@@ -159,7 +188,7 @@ High_Performers_Count
 High_Performer_%
 ```
 
-## Compensation Analytics
+### Compensation Measures
 
 ```DAX
 Dept_Avg_Salary_AEXCEPT
@@ -168,7 +197,7 @@ Salary_Rank_Dept
 Salary_Formatted
 ```
 
-## Training Analytics
+### Training Measures
 
 ```DAX
 Avg_Training_Cost
@@ -177,7 +206,7 @@ Training_Cost_Rank
 Bench_Utilisation_%
 ```
 
-## Time Intelligence
+### Time Intelligence Measures
 
 ```DAX
 YTD_New_Hires
@@ -187,105 +216,62 @@ Hires_Prior_3M
 Attrition_Rate_YTD
 ```
 
-The time-intelligence layer uses functions and concepts such as:
+The project uses advanced DAX concepts including:
 
+- `CALCULATE`
+- `DIVIDE`
+- `SUMX`
+- `AVERAGEX`
+- `VALUES`
+- `FILTER`
 - `TOTALYTD`
 - `DATESYTD`
 - `SAMEPERIODLASTYEAR`
 - `DATEADD`
-- `CALCULATE`
-- `DIVIDE`
 - `USERELATIONSHIP`
+- Context Transition
+- Filter Context
 
 ---
 
-# 📈 Key KPI Layer
+# 🧹 Data Preparation
 
-The dashboard is designed around executive-level HR KPIs.
+Data preparation was performed using **Power Query**.
 
-| KPI | Business Meaning |
-|---|---|
-| Total Headcount | Total employees represented in the model |
-| Active Headcount | Currently active employees |
-| Terminated Count | Employees who have exited |
-| Attrition Rate | Employee exit rate relative to workforce |
-| Average Salary | Average employee compensation |
-| Total Salary Cost | Aggregate salary expenditure |
-| Average Tenure | Average employee service duration |
-| Average Performance Rating | Overall workforce performance |
-| Training Cost | Investment in employee development |
-| High Performer % | Share of employees meeting high-performance criteria |
-| Headcount % of Total | Department/workgroup contribution to total workforce |
+### Transformation Steps
 
----
-
-# 📊 Dashboard Capabilities
-
-The Power BI report supports analysis across multiple dimensions.
-
-### Workforce
-
-- Headcount
-- Active vs terminated employees
-- Department distribution
-- Career-level distribution
-- Tenure analysis
-
-### Compensation
-
-- Average salary
-- Department salary comparison
-- Salary bands
-- Salary ranking
-- Above-average salary identification
-
-### Performance
-
-- Performance rating distribution
-- High-performer analysis
-- Department-level performance comparison
-
-### Training
-
-- Training participation
-- Training cost
-- Average training cost
-- Department training analysis
-- Training cost ranking
-
-### Attrition
-
-- Attrition rate
-- Attrition trends
-- Termination analysis
-- YTD attrition
-- Historical comparison
-
-### Recruitment
-
-- Applicant pipeline
-- Application status
-- Recruitment-stage analysis
+- Validated source tables
+- Corrected column data types
+- Converted joining and termination dates to Date
+- Converted salary fields to numeric format
+- Converted employee ratings to Whole Number
+- Trimmed and cleaned text fields
+- Standardized categorical values
+- Validated employee identifiers
+- Checked missing values
+- Prepared tables for relationships
+- Created analytical columns
+- Validated data before loading into the model
 
 ---
 
 # 🧱 Calculated Columns
 
-The model includes employee-level analytical attributes such as:
+The project contains several calculated employee attributes.
 
 ### Tenure
 
 `Tenure_Years`
 
-Calculates employee service duration based on joining and termination dates, using the current date for active employees.
+Calculates employee service duration based on joining and termination dates. Active employees use the current date for tenure calculation.
 
 ### Career Level
 
 `Career_Level_Band`
 
-Classifies employees into career-level groups based on defined business rules.
+Groups employees into defined career-level categories.
 
-### Salary Band
+### Salary Classification
 
 `Salary_Band`
 
@@ -295,303 +281,397 @@ Groups employees into salary ranges for compensation analysis.
 
 `Is_Active`
 
-Creates a standardized active/inactive indicator from employment status.
+Creates an active/inactive employee indicator based on employee status.
 
 ### Employee Name
 
 `Full_Name`
 
-Combines employee name fields into a reusable display attribute.
+Creates a reusable full-name field for employee-level reporting.
 
 ---
 
-# 🧠 Analytical Design Principles
+# 📊 Data Model
 
-The project follows these BI principles:
+The project follows a structured analytical data model.
 
-### 1. Separate Measures from Raw Data
+### Main Employee Table
 
-Business logic is centralized in the `_Measures` table instead of creating unnecessary duplicate calculations.
+- EmployeeMaster
 
-### 2. Prefer Measures for Aggregations
+### Related Tables
 
-Dynamic metrics such as headcount, salary, attrition, and percentages are implemented as measures wherever possible.
+- Training
+- Performance
+- EngagementSurvey
 
-### 3. Use Explicit Filter Context
+### Standalone Business Table
 
-DAX calculations are designed to respect report filters while providing controlled context removal where required.
-
-### 4. Reusable Business Logic
-
-Common HR calculations are implemented once and reused across multiple visuals.
-
-### 5. Time Intelligence
-
-Date-based analysis is handled through dedicated time-intelligence measures rather than manually hard-coded calculations.
+- Recruitment
 
 ---
 
-# 🎨 Report Design
+## 🔗 Relationships
 
-Recommended report design principles include:
+The primary employee relationships are:
 
-- Executive KPI cards at the top.
-- Consistent visual hierarchy.
-- Department and employee segmentation.
-- Interactive slicers.
-- Drill-down where appropriate.
-- Clear titles and labels.
-- Minimal visual clutter.
-- Consistent number formatting.
-- Currency formatting for salary/cost metrics.
-- Percentage formatting for ratio and rate measures.
+```text
+EmployeeMaster[Employee ID]
+            │
+            ├──────────────► Training[Employee ID]
+            │
+            ├──────────────► EngagementSurvey[Employee ID]
+            │
+            └──────────────► Performance[Employee ID]
+```
 
----
+Relationship design:
 
-# 🔍 Business Questions Answered
-
-The solution enables stakeholders to answer questions such as:
-
-1. How many employees are currently active?
-2. What is the overall attrition rate?
-3. Which departments have the highest headcount?
-4. Which departments have the highest average salary?
-5. Which employees/departments have above-average compensation?
-6. What percentage of employees are high performers?
-7. How much is being spent on employee training?
-8. Which departments have the highest training cost?
-9. How has hiring changed over time?
-10. How does current hiring compare with the previous year?
-11. What is the average employee tenure?
-12. Which career levels represent the largest portion of the workforce?
-13. How does employee performance vary across departments?
-14. What is the organization's salary cost?
-15. How is workforce diversity distributed?
+- **One-to-Many** relationships where applicable
+- **Single-direction** filtering
+- EmployeeMaster acts as the primary employee dimension
+- Recruitment remains independent where Employee ID is unavailable
 
 ---
 
-# 🧪 Validation & Testing
+# 📅 Time Intelligence
 
-Before publishing the report, validate:
+The project includes advanced time-based HR analysis.
 
-- Total employee count against the source.
-- Active employee count against employment status.
-- Department totals.
-- Salary totals and averages.
-- Training cost totals.
-- Performance rating averages.
-- Attrition calculations.
-- Date relationships.
-- YTD and previous-year calculations.
-- Filter behavior across visuals.
-- Relationship cardinality.
-- Blank/error values.
+Examples:
+
+```text
+YTD New Hires
+Previous-Year New Hires
+Hiring YoY %
+Prior 3-Month Hires
+YTD Attrition Rate
+```
+
+Time-intelligence calculations use:
+
+- `DATESYTD`
+- `TOTALYTD`
+- `SAMEPERIODLASTYEAR`
+- `DATEADD`
+- `CALCULATE`
+- `USERELATIONSHIP`
+
+This allows management to compare workforce activity across different periods.
+
+---
+
+# 📸 Dashboard Preview
+
+```text
+assets/
+│
+├── HR Dashboard Overview.png
+├── Workforce Analytics.png
+├── Attrition Analytics.png
+├── Compensation Analytics.png
+├── Training Analytics.png
+└── Performance Analytics.png
+```
+
+> Add your exported Power BI dashboard screenshots to the `assets` folder and update the image links below.
+
+```markdown
+![HR Dashboard Overview](assets/HR%20Dashboard%20Overview.png)
+
+![Workforce Analytics](assets/Workforce%20Analytics.png)
+
+![Attrition Analytics](assets/Attrition%20Analytics.png)
+```
+
+---
+
+# 🚀 Power BI Skills Demonstrated
+
+- Power Query ETL
+- Data Cleaning
+- Data Transformation
+- Data Modeling
+- Relationship Management
+- Star Schema Concepts
+- Advanced DAX
+- Filter Context
+- Context Transition
+- Time Intelligence
+- KPI Cards
+- Interactive Slicers
+- Drill Down
+- Drill Through
+- Conditional Formatting
+- Dynamic Business Metrics
+- Dashboard Design
+- Data Validation
+- Performance Optimization
+
+---
+
+# 📈 Key Performance Indicators
+
+| KPI | Description |
+|-----|-------------|
+| Total Headcount | Total employees in the dataset |
+| Active Headcount | Currently active employees |
+| Terminated Count | Employees who have left |
+| Attrition Rate | Employee exit rate |
+| Average Salary | Average employee compensation |
+| Total Salary Cost | Overall salary expenditure |
+| Average Tenure | Average employee service duration |
+| Average Performance | Average workforce performance rating |
+| Training Cost | Investment in employee development |
+| High Performer % | Percentage of high-performing employees |
+| Department Count | Number of departments represented |
+
+---
+
+# 📊 Dashboard Workflow
+
+```text
+Raw HR Data
+      │
+      ▼
+Power Query
+      │
+      ▼
+Data Cleaning & Transformation
+      │
+      ▼
+Data Model & Relationships
+      │
+      ▼
+Calculated Columns
+      │
+      ▼
+DAX Measures
+      │
+      ▼
+KPI Layer
+      │
+      ▼
+Interactive Power BI Dashboard
+      │
+      ▼
+Business Insights
+```
+
+---
+
+# 🧪 Data Validation
+
+The report includes validation of:
+
+- Employee count
+- Active employee count
+- Terminated employee count
+- Department totals
+- Salary calculations
+- Training costs
+- Performance ratings
+- Attrition calculations
+- Relationship integrity
+- Date-based calculations
+- YTD calculations
+- Previous-year comparisons
+- Blank and invalid values
 
 ---
 
 # ⚡ Performance Optimization
 
-The model is designed with Power BI performance considerations in mind:
+The model follows Power BI performance best practices:
 
-- Remove unnecessary columns.
-- Remove unused rows.
-- Prefer numeric keys where practical.
-- Avoid unnecessary calculated columns.
-- Use measures for dynamic aggregations.
-- Keep relationships simple.
-- Avoid unnecessary bidirectional relationships.
-- Centralize reusable DAX.
-- Reduce high-cardinality columns when they are not required.
-- Use a dedicated Date table for time intelligence.
+- Removed unnecessary columns
+- Used appropriate data types
+- Centralized reusable measures
+- Avoided unnecessary calculated columns
+- Maintained simple relationships
+- Used single-direction filtering
+- Reduced unnecessary model complexity
+- Used dedicated DAX measures for dynamic calculations
+- Applied controlled filter removal where required
 
 ---
 
-# 🗂️ Recommended Repository Structure
+# 📂 Repository Structure
 
 ```text
-HR-Data-Analytics/
+HR-Data-Analytics-PowerBI
+│
+├── PR.4 (HR Data Analytics).pbix
+│
+├── Data
+│   ├── EmployeeMaster
+│   ├── Training
+│   ├── Performance
+│   ├── EngagementSurvey
+│   └── Recruitment
+│
+├── assets
+│   ├── HR Dashboard Overview.png
+│   ├── Workforce Analytics.png
+│   ├── Attrition Analytics.png
+│   ├── Compensation Analytics.png
+│   └── Training Analytics.png
 │
 ├── README.md
-│
-├── PowerBI/
-│   └── PR.4 (HR Data Analytics).pbix
-│
-├── Data/
-│   └── Source datasets
-│
-├── Documentation/
-│   ├── Data_Model.md
-│   ├── DAX_Measures.md
-│   └── Business_Requirements.md
-│
-├── Screenshots/
-│   ├── Executive_Dashboard.png
-│   ├── Workforce_Analysis.png
-│   └── HR_KPI_Dashboard.png
-│
-└── .gitignore
+└── LICENSE
 ```
-
-> Avoid committing confidential, personal, or production HR data to a public repository.
 
 ---
 
-# 🚀 How to Use
+# 💼 Business Value
+
+This dashboard enables HR stakeholders to:
+
+- Monitor workforce health
+- Identify attrition risks
+- Analyze compensation structures
+- Evaluate employee performance
+- Measure training investment
+- Monitor workforce diversity
+- Track hiring activity
+- Improve workforce planning
+- Support management decisions with data
+
+---
+
+# 🔥 Project Highlights
+
+- Enterprise-style HR Analytics Dashboard
+- Interactive Power BI reporting
+- Advanced DAX calculations
+- Dedicated measure table
+- Time-intelligence analysis
+- Employee-level analytical attributes
+- Workforce KPI reporting
+- Attrition analysis
+- Salary analytics
+- Training cost analytics
+- Performance analytics
+- Recruitment analysis
+- Data validation
+- Performance-focused data modeling
+
+---
+
+# 📚 Learning Outcomes
+
+Through this project, I gained practical experience in:
+
+- Business Intelligence
+- HR Analytics
+- Power BI Development
+- Power Query
+- M Language
+- Data Modeling
+- DAX
+- Time Intelligence
+- KPI Development
+- Dashboard Design
+- Data Visualization
+- Data Validation
+- Performance Optimization
+- Analytical Thinking
+- Business Problem Solving
+
+---
+
+# 🚀 How to Run the Project
 
 ### Requirements
 
-- Power BI Desktop
-- Source HR dataset(s)
-- Access to the required data location
+- Microsoft Power BI Desktop
+- Access to the project source data
 
 ### Steps
 
-1. Clone/download the repository.
-2. Open the `.pbix` file using Power BI Desktop.
-3. If required, update the source file/folder path.
-4. Open **Transform Data** and verify Power Query sources.
-5. Verify relationships in **Model View**.
-6. Select **Refresh**.
-7. Validate KPI totals.
-8. Explore the report using slicers and filters.
+1. Clone or download the repository.
+2. Open `PR.4 (HR Data Analytics).pbix`.
+3. Open **Transform Data**.
+4. Verify the source file/folder paths.
+5. Update the source path if the dataset has been moved.
+6. Verify relationships in **Model View**.
+7. Click **Refresh**.
+8. Validate the KPI values.
+9. Explore the interactive dashboard.
 
 ---
 
 # 🔐 Data Privacy
 
-HR analytics can contain sensitive employee information.
+HR datasets may contain sensitive employee information.
 
 For public GitHub repositories:
 
-- Do not upload personally identifiable information.
-- Do not publish employee names unless explicitly permitted.
-- Remove confidential salary information.
-- Remove private HR records.
-- Use synthetic/anonymized datasets for demonstrations.
-- Keep production credentials outside the PBIX/repository.
-
----
-
-# 📌 Assumptions
-
-- Employee ID is treated as the primary employee-level identifier.
-- EmployeeMaster acts as the primary employee dimension.
-- Training, Performance, and EngagementSurvey contain employee-level records.
-- Recruitment does not necessarily represent current employees.
-- Attrition calculations depend on the defined employee status and termination-date logic.
-- Salary metrics use the salary field available in the source dataset.
-- Time-intelligence calculations depend on correct date relationships.
+- Do not publish confidential employee information.
+- Do not expose personal identifiers.
+- Do not upload private HR records.
+- Use anonymized or synthetic data for public demonstrations.
+- Do not commit credentials or private connection details.
 
 ---
 
 # 🔮 Future Enhancements
 
-Potential production enhancements include:
+Possible future improvements include:
 
 - Row-Level Security (RLS)
-- Incremental Refresh
 - Power BI Service deployment
-- Scheduled refresh
-- HR alerting
-- Automated anomaly detection
-- Workforce forecasting
+- Scheduled data refresh
+- Incremental Refresh
 - Attrition prediction
-- Salary equity analysis
+- Workforce forecasting
 - Employee engagement scoring
-- Recruitment funnel conversion rates
-- What-if salary and headcount scenarios
-- Automated deployment pipelines
-- Microsoft Fabric integration
+- Salary equity analysis
+- Recruitment funnel conversion analysis
+- What-if headcount scenarios
+- Automated HR alerts
 - Power BI deployment pipelines
+- Microsoft Fabric integration
 
 ---
 
-# 🛠️ Technology Stack
+# 🤝 Contributing
 
-| Technology | Usage |
-|---|---|
-| **Power BI Desktop** | Data modeling and dashboard development |
-| **Power Query / M** | ETL and data transformation |
-| **DAX** | Measures and analytical calculations |
-| **Excel / CSV** | Source data where applicable |
-| **Git / GitHub** | Version control and project portfolio |
+Contributions and suggestions are welcome.
 
----
-
-# 📚 Skills Demonstrated
-
-This project demonstrates practical knowledge of:
-
-- Business Intelligence
-- Data Cleaning
-- ETL
-- Power Query
-- M Language
-- Data Modeling
-- Relationships
-- Star-schema concepts
-- DAX
-- Filter Context
-- Context Transition
-- Time Intelligence
-- KPI Development
-- HR Analytics
-- Dashboard Design
-- Data Validation
-- Performance Optimization
-- Git/GitHub Project Management
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Commit your changes
+5. Push the branch
+6. Submit a Pull Request
 
 ---
 
-# 💼 Portfolio Value
+# 👨‍💻 Author
 
-This project demonstrates an end-to-end BI workflow suitable for:
+**Harshit Dara**
 
-- Data Analyst roles
-- Business Intelligence Analyst roles
-- Power BI Developer roles
-- HR Analytics roles
-- Junior BI Developer roles
+**Aspiring Data Analyst | Power BI Developer | Business Intelligence Enthusiast**
 
-It highlights the ability to move from **raw business data to an analytical semantic model and decision-support dashboard**.
+📧 Email: harshitdara66@gmail.com
 
----
+💼 LinkedIn: https://www.linkedin.com/in/harshit-dara-77165135b
 
-# 👨‍💻 Project Information
-
-**Project:** HR Data Analytics  
-**Platform:** Microsoft Power BI  
-**Category:** Business Intelligence / HR Analytics  
-**File:** `PR.4 (HR Data Analytics).pbix`
+🌐 GitHub: https://github.com/harshitdara66-sys
 
 ---
 
-## ⭐ Project Highlights
+# 📄 License
 
-- End-to-end Power BI analytics solution
-- Structured data model
-- Dedicated DAX measure layer
-- HR workforce KPIs
-- Attrition analytics
-- Compensation analytics
-- Training analytics
-- Performance analytics
-- Recruitment analysis
-- Time-intelligence calculations
-- Data quality validation
-- Business-focused dashboard design
+This project is licensed under the **MIT License**.
 
 ---
 
-## 📄 License
+<p align="center">
 
-This project is intended for educational, portfolio, and demonstration purposes unless a separate license is provided.
+## ⭐ If you found this project useful, please consider giving it a Star!
 
----
+**Data → Insights → Decisions 📊**
 
-## ⭐ Support
-
-If this project is useful for learning Power BI or HR analytics, consider giving the repository a ⭐ on GitHub.
-
-**Built with Microsoft Power BI | Data → Insights → Decisions**
-
+</p>

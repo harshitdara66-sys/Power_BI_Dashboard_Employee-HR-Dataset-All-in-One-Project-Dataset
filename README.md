@@ -364,14 +364,7 @@ This allows management to compare workforce activity across different periods.
 # 📸 Dashboard Preview
 
 
-assets/
-│
-├── HR Dashboard Overview.png
-├── Workforce Analytics.png
-├── Attrition Analytics.png
-├── Compensation Analytics.png
-├── Training Analytics.png
-└── Performance Analytics.png
+
 ![image alt](https://github.com/harshitdara66-sys/Power_BI_Dashboard_Employee-HR-Dataset-All-in-One-Project-Dataset/blob/87a6fb7a62e66e1d16c6a3e1a650b02da00ee746/HR%20WORKFORCE%20-%20ATTRITION%20ANALYSIS.png.png)
 
 ![image alt](https://github.com/harshitdara66-sys/Power_BI_Dashboard_Employee-HR-Dataset-All-in-One-Project-Dataset/blob/412b0f054f1d37eaa8eabac8bb7a633d73acab37/Compensation%20%C2%B7%20Salary%20Bands%20%C2%B7%20Training%20Investment.png.png)
